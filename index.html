@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue Learning Platform - Learn Web Development</title>
+    <link rel="stylesheet" href="./assets/global/global-css.css">
+    <link rel="stylesheet" href="./index.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="hero-section">
+        <div class="container">
+            <header class="header">
+                <div class="logo">
+                    <h1>VueLearning</h1>
+                </div>
+                <nav class="nav">
+                    <a href="#about" class="nav-link">About</a>
+                    <a href="#curriculum" class="nav-link">Curriculum</a>
+                    <a href="#progress" class="nav-link">Progress</a>
+                </nav>
+            </header>
+
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">
+                        Build the Platform<br>
+                        <span class="highlight">You're Learning On</span>
+                    </h1>
+                    <p class="hero-subtitle">
+                        Master web development by creating this very learning platform. 
+                        Start with HTML, CSS, and JavaScript, then convert everything to Vue.js.
+                    </p>
+                    <div class="hero-buttons">
+                        <button class="btn btn-primary" onclick="startLearning()">
+                            Start Learning
+                        </button>
+                        <button class="btn btn-secondary" onclick="showProgress()">
+                            View Progress
+                        </button>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="code-preview">
+                        <div class="code-header">
+                            <div class="dots">
+                                <span class="dot red"></span>
+                                <span class="dot yellow"></span>
+                                <span class="dot green"></span>
+                            </div>
+                            <span class="filename">LearningPlatform.vue</span>
+                        </div>
+                        <div class="code-content">
+                            <pre><code>&lt;template&gt;
+  &lt;div class="platform"&gt;
+    &lt;Sidebar :lessons="lessons" /&gt;
+    &lt;MainContent :current="current" /&gt;
+    &lt;ProgressTracker :completed="completed" /&gt;
+  &lt;/div&gt;
+&lt;/template&gt;</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section id="about" class="about-section">
+        <div class="container">
+            <h2 class="section-title">Why This Approach Works</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Learn by Building</h3>
+                    <p>Create the actual platform you're using to learn - see immediate results</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h3>Mobile First</h3>
+                    <p>Responsive design from day one - learn anywhere, anytime</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🚀</div>
+                    <h3>Progressive Learning</h3>
+                    <p>Start with basics, end with modern Vue.js development</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🏆</div>
+                    <h3>Portfolio Ready</h3>
+                    <p>End with a complete, professional application to showcase</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="curriculum" class="curriculum-section">
+        <div class="container">
+            <h2 class="section-title">Learning Path</h2>
+            <div class="curriculum-timeline">
+                <div class="timeline-item">
+                    <div class="timeline-number">0</div>
+                    <div class="timeline-content">
+                        <h3>Setup & Orientation</h3>
+                        <p>Get your development environment ready</p>
+                        <div class="lesson-count">1 Lesson</div>
+                    </div>
+                </div>
+                <div class="timeline-item locked">
+                    <div class="timeline-number">1</div>
+                    <div class="timeline-content">
+                        <h3>Web Foundations</h3>
+                        <p>HTML, CSS, JavaScript basics</p>
+                        <div class="lesson-count">5 Lessons</div>
+                    </div>
+                </div>
+                <div class="timeline-item locked">
+                    <div class="timeline-number">2</div>
+                    <div class="timeline-content">
+                        <h3>Vue.js Basics (CDN)</h3>
+                        <p>Introduction to reactive programming</p>
+                        <div class="lesson-count">4 Lessons</div>
+                    </div>
+                </div>
+                <div class="timeline-item locked">
+                    <div class="timeline-number">3</div>
+                    <div class="timeline-content">
+                        <h3>Components & Reusability</h3>
+                        <p>Building modular components</p>
+                        <div class="lesson-count">4 Lessons</div>
+                    </div>
+                </div>
+                <div class="timeline-item locked">
+                    <div class="timeline-number">4</div>
+                    <div class="timeline-content">
+                        <h3>Modern Vue Development</h3>
+                        <p>Vite, Router, State Management</p>
+                        <div class="lesson-count">4 Lessons</div>
+                    </div>
+                </div>
+                <div class="timeline-item locked">
+                    <div class="timeline-number">5</div>
+                    <div class="timeline-content">
+                        <h3>Complete Learning Platform</h3>
+                        <p>Build the full-featured platform</p>
+                        <div class="lesson-count">6 Lessons</div>
+                    </div>
+                </div>
+                <div class="timeline-item locked">
+                    <div class="timeline-number">6</div>
+                    <div class="timeline-content">
+                        <h3>Advanced Topics</h3>
+                        <p>Authentication, Backend, Accessibility</p>
+                        <div class="lesson-count">4 Lessons</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="progress" class="progress-section">
+        <div class="container">
+            <h2 class="section-title">Your Progress</h2>
+            <div class="progress-dashboard">
+                <div class="progress-card">
+                    <div class="progress-header">
+                        <h3>Overall Progress</h3>
+                        <div class="progress-percentage" id="overallProgress">0%</div>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="overallProgressFill" style="width: 0%"></div>
+                    </div>
+                    <div class="progress-stats">
+                        <div class="stat">
+                            <span class="stat-label">Lessons Completed</span>
+                            <span class="stat-value" id="completedLessons">0/28</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-label">Current Part</span>
+                            <span class="stat-value" id="currentPart">Part 0</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="recent-activity">
+                    <h3>Recent Activity</h3>
+                    <div class="activity-list" id="activityList">
+                        <div class="activity-item">
+                            <div class="activity-icon">📚</div>
+                            <div class="activity-content">
+                                <div class="activity-title">Welcome to Vue Learning!</div>
+                                <div class="activity-time">Ready to start</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="quick-access">
+                <h3>Quick Access</h3>
+                <div class="quick-buttons">
+                    <button class="btn btn-outline" onclick="goToNextLesson()">
+                        Continue Learning
+                    </button>
+                    <button class="btn btn-outline" onclick="showAllLessons()">
+                        View All Lessons
+                    </button>
+                    <button class="btn btn-outline" onclick="openCertificate()" id="certificateBtn" disabled>
+                        Generate Certificate
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lesson Selection Modal -->
+    <div class="modal" id="lessonModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Select Lesson</h2>
+                <button class="close-btn" onclick="closeLessonModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="parts-grid" id="partsGrid">
+                    <!-- Will be populated by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="./assets/global/global-progress.js"></script>
+    <script src="./index.js"></script>
+</body>
+</html>
