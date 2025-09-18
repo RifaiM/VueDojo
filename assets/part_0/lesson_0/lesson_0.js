@@ -520,6 +520,43 @@ function addSmoothScrolling() {
     });
 }
 
+// Complete lesson and navigate to next
+function completeLessonAndContinue() {
+    // Mark lesson complete with progress tracker
+    if (window.markLessonComplete) {
+        window.markLessonComplete(100);
+    }
+    
+    // Save final progress
+    saveProgress();
+    
+    // Show completion notification
+    showNotification('Lesson 0 completed! Redirecting to Lesson 1...', 'celebration');
+    
+    // Navigate to next lesson after a short delay
+    setTimeout(() => {
+        // Navigate to Lesson 1 (HTML Basics)
+        window.location.href = '../part_1/lesson_1/lesson_1.html';
+    }, 2000);
+}
+
+// Update the onclick handler - need to modify the HTML button
+// For now, let's override the existing markLessonComplete function
+window.markLessonComplete = function(score = 100) {
+    // Use the lesson protection system to mark complete
+    if (window.lessonProtection) {
+        window.lessonProtection.markCurrentLessonComplete(score);
+    }
+    
+    // Save progress
+    saveProgress();
+    
+    // Navigate to next lesson
+    setTimeout(() => {
+        window.location.href = '../part_1/lesson_1/lesson_1.html';
+    }, 2000);
+};
+
 // Keyboard shortcuts
 document.addEventListener('keydown', function(event) {
     // Press 'C' to continue to next section

@@ -278,12 +278,29 @@ class ProgressTracker {
                     return {
                         ...lesson,
                         partId,
-                        partTitle: part.title
+                        partTitle: part.title,
+                        url: this.getLessonURL(lesson.id, partId)
                     };
                 }
             }
         }
         return null; // All lessons completed
+    }
+
+    // Get lesson URL based on lesson ID and part
+    getLessonURL(lessonId, partId) {
+        return `../part_${partId.split('_')[1]}/${lessonId}/${lessonId}.html`;
+    }
+
+    // Navigate to next lesson
+    navigateToNextLesson() {
+        const nextLesson = this.getNextLesson();
+        if (nextLesson) {
+            window.location.href = nextLesson.url;
+        } else {
+            // All lessons completed, go to certificate
+            window.location.href = '../global/certificate.html';
+        }
     }
 
     // Check if lesson is accessible (previous lessons completed)
