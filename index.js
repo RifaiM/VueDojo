@@ -128,7 +128,7 @@ function getPartLessons(partNumber) {
 
 // Check if a lesson is completed
 function isLessonCompleted(lessonId) {
-    return localStorage.getItem(`${lessonId}_complete`) === 'true';
+    return localStorage.getItem(`vue_learning_${lessonId}_complete`) === 'true';
 }
 
 // Get current part based on progress
