@@ -1,0 +1,1478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 3: JavaScript Basics - Vue Learning Platform</title>
+    <link rel="stylesheet" href="../../global/global-css.css">
+    <link rel="stylesheet" href="lesson_3.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Lesson Protection - Load First -->
+    <script src="../../global/lesson-protection.js"></script>
+    <script src="../../global/global-progress.js"></script>
+
+    <!-- Navigation Header -->
+    <nav class="lesson-nav">
+        <div class="nav-container">
+            <a href="../../../index.html" class="nav-home">
+                <span class="nav-icon">🏠</span>
+                Home
+            </a>
+            <div class="nav-lesson-info">
+                <div class="lesson-number">Lesson 3</div>
+                <div class="lesson-title">JavaScript Basics</div>
+                <div class="part-indicator">Part 1: Web Foundations</div>
+            </div>
+            <div class="nav-progress">
+                <div class="progress-circle">
+                    <span class="progress-text">0/7</span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="lesson-container">
+        <aside class="lesson-sidebar">
+            <div class="sidebar-content">
+                <div class="lesson-outline">
+                    <h3>In This Lesson</h3>
+                    <ul class="outline-list">
+                        <li class="outline-item" data-section="intro">
+                            <span class="outline-icon">⚡</span>
+                            Introduction to JavaScript
+                        </li>
+                        <li class="outline-item" data-section="variables">
+                            <span class="outline-icon">📊</span>
+                            Variables & Data Types
+                        </li>
+                        <li class="outline-item" data-section="functions">
+                            <span class="outline-icon">⚙️</span>
+                            Functions & Logic
+                        </li>
+                        <li class="outline-item" data-section="dom">
+                            <span class="outline-icon">🌐</span>
+                            DOM Manipulation
+                        </li>
+                        <li class="outline-item" data-section="events">
+                            <span class="outline-icon">🎯</span>
+                            Events & Interactivity
+                        </li>
+                        <li class="outline-item" data-section="mini-project">
+                            <span class="outline-icon">🚀</span>
+                            Interactive Profile
+                        </li>
+                        <li class="outline-item" data-section="completion">
+                            <span class="outline-icon">✅</span>
+                            Complete Lesson
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="lesson-nav-buttons">
+                    <a href="../lesson_2/lesson_2.html" class="nav-btn nav-prev">
+                        <span class="nav-icon">←</span>
+                        <div class="nav-text">
+                            <div class="nav-label">Previous</div>
+                            <div class="nav-title">CSS Basics</div>
+                        </div>
+                    </a>
+                    
+                    <div class="nav-btn nav-next disabled" id="nextLessonBtn">
+                        <div class="nav-text">
+                            <div class="nav-label">Next</div>
+                            <div class="nav-title">Vue.js Introduction</div>
+                        </div>
+                        <span class="nav-icon">→</span>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <main class="lesson-main">
+            <!-- Introduction Section -->
+            <section id="intro" class="lesson-section">
+                <div class="section-header">
+                    <h1>JavaScript Basics: Bringing Pages to Life</h1>
+                    <div class="section-meta">
+                        <span class="duration">⏱️ 40-45 minutes</span>
+                        <span class="difficulty">📚 Beginner</span>
+                        <span class="hands-on">⚡ Interactive & Dynamic</span>
+                    </div>
+                </div>
+
+                <div class="intro-content">
+                    <div class="welcome-back">
+                        <h2>Ready for Interactivity? ⚡</h2>
+                        <p>
+                            You've built the structure with HTML and added beautiful styling with CSS. 
+                            Now it's time to make your web pages interactive and dynamic! JavaScript 
+                            is the programming language that powers the web, enabling everything from 
+                            simple button clicks to complex web applications.
+                        </p>
+                    </div>
+
+                    <div class="before-after-demo">
+                        <h3>The Power of JavaScript</h3>
+                        <p>See how JavaScript transforms static pages into dynamic experiences:</p>
+                        
+                        <div class="demo-comparison">
+                            <div class="demo-item">
+                                <h4>❌ Static Page (HTML + CSS only)</h4>
+                                <div class="demo-frame static">
+                                    <h2>Welcome, Visitor!</h2>
+                                    <button class="demo-btn disabled">Click Me</button>
+                                    <div class="counter">Clicks: 0</div>
+                                    <div class="time">Current time: --:--</div>
+                                </div>
+                            </div>
+                            
+                            <div class="demo-item">
+                                <h4>✨ Interactive Page (With JavaScript)</h4>
+                                <div class="demo-frame interactive">
+                                    <h2 id="dynamic-greeting">Welcome, Visitor!</h2>
+                                    <button class="demo-btn" id="interactive-btn">Click Me</button>
+                                    <div class="counter">Clicks: <span id="click-count">0</span></div>
+                                    <div class="time">Current time: <span id="current-time">--:--</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="lesson-goals">
+                        <h3>What You'll Master Today</h3>
+                        <div class="goals-grid">
+                            <div class="goal-item">
+                                <div class="goal-icon">📊</div>
+                                <div class="goal-text">
+                                    <h4>Variables & Data</h4>
+                                    <p>Store and manipulate different types of information</p>
+                                </div>
+                            </div>
+                            <div class="goal-item">
+                                <div class="goal-icon">⚙️</div>
+                                <div class="goal-text">
+                                    <h4>Functions & Logic</h4>
+                                    <p>Create reusable code blocks and decision making</p>
+                                </div>
+                            </div>
+                            <div class="goal-item">
+                                <div class="goal-icon">🌐</div>
+                                <div class="goal-text">
+                                    <h4>DOM Manipulation</h4>
+                                    <p>Change HTML content and CSS styles dynamically</p>
+                                </div>
+                            </div>
+                            <div class="goal-item">
+                                <div class="goal-icon">🎯</div>
+                                <div class="goal-text">
+                                    <h4>Event Handling</h4>
+                                    <p>Respond to user actions like clicks and keyboard input</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="what-is-js">
+                        <h3>What is JavaScript?</h3>
+                        <div class="js-definition">
+                            <div class="definition-main">
+                                JavaScript is the <strong>programming language of the web</strong>
+                            </div>
+                            <div class="definition-breakdown">
+                                <div class="term-item">
+                                    <strong>Dynamic:</strong> Can change content, styles, and behavior in real-time
+                                </div>
+                                <div class="term-item">
+                                    <strong>Interactive:</strong> Responds to user actions and events
+                                </div>
+                                <div class="term-item">
+                                    <strong>Versatile:</strong> Runs in browsers, servers, mobile apps, and more
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Variables & Data Types Section -->
+            <section id="variables" class="lesson-section">
+                <div class="section-header">
+                    <h2>Variables & Data Types: Storing Information</h2>
+                    <p class="section-subtitle">Learn how to store and work with different types of data</p>
+                </div>
+
+                <div class="variables-basics">
+                    <h3>What are Variables?</h3>
+                    <p>Variables are like labeled boxes that store information. You can put different types of data in them, look at what's inside, and change the contents whenever you need to.</p>
+                    
+                    <div class="variable-analogy">
+                        <h4>Think of Variables Like...</h4>
+                        <div class="analogy-grid">
+                            <div class="analogy-item">
+                                <div class="analogy-icon">📦</div>
+                                <h5>Storage Boxes</h5>
+                                <p>Each box has a label and can hold different items</p>
+                            </div>
+                            <div class="analogy-item">
+                                <div class="analogy-icon">🏷️</div>
+                                <h5>Name Tags</h5>
+                                <p>The variable name is like a name tag on the box</p>
+                            </div>
+                            <div class="analogy-item">
+                                <div class="analogy-icon">🔄</div>
+                                <h5>Changeable Contents</h5>
+                                <p>You can replace what's inside the box anytime</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="variable-creation">
+                        <h4>Creating Variables</h4>
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span class="code-title">Variable Declaration</span>
+                                <button class="copy-btn" onclick="copyCode('variable-declaration')">Copy</button>
+                            </div>
+                            <pre class="code-block" id="variable-declaration">// Three ways to create variables
+let userName = "Sarah";      // Can be changed later
+const siteTitle = "My Blog"; // Cannot be changed
+var counter = 0;             // Old way (avoid in new code)
+
+// You can also declare first, assign later
+let userAge;
+userAge = 25;</pre>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="data-types">
+                    <h3>JavaScript Data Types</h3>
+                    <div class="data-types-grid">
+                        <div class="data-type-card">
+                            <h4>📝 Strings</h4>
+                            <p>Text and characters</p>
+                            <div class="code-example">
+                                <pre class="code-block">let firstName = "John";
+let message = 'Hello World!';
+let quote = `He said "Hi"`;</pre>
+                            </div>
+                            <div class="live-demo" id="string-demo">
+                                <button onclick="demonstrateStrings()">Try String Demo</button>
+                                <div class="demo-result"></div>
+                            </div>
+                        </div>
+
+                        <div class="data-type-card">
+                            <h4>🔢 Numbers</h4>
+                            <p>Integers and decimals</p>
+                            <div class="code-example">
+                                <pre class="code-block">let age = 25;
+let price = 19.99;
+let temperature = -5;</pre>
+                            </div>
+                            <div class="live-demo" id="number-demo">
+                                <button onclick="demonstrateNumbers()">Try Number Demo</button>
+                                <div class="demo-result"></div>
+                            </div>
+                        </div>
+
+                        <div class="data-type-card">
+                            <h4>✅ Booleans</h4>
+                            <p>True or false values</p>
+                            <div class="code-example">
+                                <pre class="code-block">let isLoggedIn = true;
+let isVisible = false;
+let hasPermission = true;</pre>
+                            </div>
+                            <div class="live-demo" id="boolean-demo">
+                                <button onclick="demonstrateBooleans()">Try Boolean Demo</button>
+                                <div class="demo-result"></div>
+                            </div>
+                        </div>
+
+                        <div class="data-type-card">
+                            <h4>📋 Arrays</h4>
+                            <p>Lists of items</p>
+                            <div class="code-example">
+                                <pre class="code-block">let colors = ["red", "green", "blue"];
+let numbers = [1, 2, 3, 4, 5];
+let mixed = ["hello", 42, true];</pre>
+                            </div>
+                            <div class="live-demo" id="array-demo">
+                                <button onclick="demonstrateArrays()">Try Array Demo</button>
+                                <div class="demo-result"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hands-on-practice">
+                    <h3>🎯 Variable Practice</h3>
+                    <div class="practice-exercise">
+                        <h4>Try It Yourself!</h4>
+                        <p>Open your browser's developer console (F12) and try these commands:</p>
+                        
+                        <div class="console-practice">
+                            <div class="console-item">
+                                <div class="console-command">
+                                    <strong>Type:</strong> <code>let myName = "Your Name"</code>
+                                </div>
+                                <div class="console-result">
+                                    <strong>Result:</strong> Creates a variable with your name
+                                </div>
+                            </div>
+                            
+                            <div class="console-item">
+                                <div class="console-command">
+                                    <strong>Type:</strong> <code>console.log(myName)</code>
+                                </div>
+                                <div class="console-result">
+                                    <strong>Result:</strong> Displays your name in the console
+                                </div>
+                            </div>
+                            
+                            <div class="console-item">
+                                <div class="console-command">
+                                    <strong>Type:</strong> <code>let favoriteNumber = 42</code>
+                                </div>
+                                <div class="console-result">
+                                    <strong>Result:</strong> Creates a number variable
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="practice-checklist">
+                            <h4>Practice Checklist:</h4>
+                            <label class="checklist-item">
+                                <input type="checkbox" id="check-console-open">
+                                <span class="checkmark"></span>
+                                Opened browser developer console (F12)
+                            </label>
+                            <label class="checklist-item">
+                                <input type="checkbox" id="check-created-string">
+                                <span class="checkmark"></span>
+                                Created a string variable with my name
+                            </label>
+                            <label class="checklist-item">
+                                <input type="checkbox" id="check-logged-variable">
+                                <span class="checkmark"></span>
+                                Used console.log() to display my variable
+                            </label>
+                            <label class="checklist-item">
+                                <input type="checkbox" id="check-created-number">
+                                <span class="checkmark"></span>
+                                Created a number variable
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Functions & Logic Section -->
+            <section id="functions" class="lesson-section">
+                <div class="section-header">
+                    <h2>Functions & Logic: Making Decisions</h2>
+                    <p class="section-subtitle">Create reusable code blocks and add decision-making to your programs</p>
+                </div>
+
+                <div class="functions-basics">
+                    <h3>What are Functions?</h3>
+                    <p>Functions are like recipes or instruction sets. You give them a name, define what they should do, and then you can use them over and over again by calling their name.</p>
+                    
+                    <div class="function-structure">
+                        <h4>Function Structure</h4>
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span class="code-title">Basic Function Syntax</span>
+                                <button class="copy-btn" onclick="copyCode('function-syntax')">Copy</button>
+                            </div>
+                            <pre class="code-block" id="function-syntax">// Function declaration
+function functionName(parameters) {
+    // Code to execute
+    return result; // Optional
+}
+
+// Example: A greeting function
+function greetUser(name) {
+    return "Hello, " + name + "!";
+}
+
+// Using (calling) the function
+let message = greetUser("Sarah");
+console.log(message); // "Hello, Sarah!"</pre>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="function-examples">
+                    <h3>Practical Function Examples</h3>
+                    <div class="function-examples-grid">
+                        <div class="function-card">
+                            <h4>📧 Simple Functions</h4>
+                            <div class="code-example">
+                                <pre class="code-block">// Function with no parameters
+function sayHello() {
+    return "Hello World!";
+}
+
+// Function with parameters
+function addNumbers(a, b) {
+    return a + b;
+}
+
+// Using the functions
+sayHello(); // "Hello World!"
+addNumbers(5, 3); // 8</pre>
+                            </div>
+                            <div class="live-demo">
+                                <button onclick="demonstrateSimpleFunctions()">Try Demo</button>
+                                <div class="demo-result"></div>
+                            </div>
+                        </div>
+
+                        <div class="function-card">
+                            <h4>🧮 Math Functions</h4>
+                            <div class="code-example">
+                                <pre class="code-block">// Calculate area of rectangle
+function calculateArea(width, height) {
+    return width * height;
+}
+
+// Calculate discount price
+function applyDiscount(price, percent) {
+    let discount = price * (percent / 100);
+    return price - discount;
+}
+
+// Usage examples
+calculateArea(10, 5); // 50
+applyDiscount(100, 20); // 80</pre>
+                            </div>
+                            <div class="live-demo">
+                                <button onclick="demonstrateMathFunctions()">Try Demo</button>
+                                <div class="demo-result"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="conditional-logic">
+                    <h3>Conditional Logic: Making Decisions</h3>
+                    <p>Sometimes your code needs to make decisions based on different conditions. JavaScript provides several ways to do this:</p>
+                    
+                    <div class="logic-examples">
+                        <div class="logic-card">
+                            <h4>🤔 If Statements</h4>
+                            <div class="code-example">
+                                <pre class="code-block">// Basic if statement
+let age = 18;
+
+if (age >= 18) {
+    console.log("You can vote!");
+}
+
+// If-else statement
+if (age >= 18) {
+    console.log("You're an adult");
+} else {
+    console.log("You're a minor");
+}
+
+// Multiple conditions
+if (age < 13) {
+    console.log("Child");
+} else if (age < 18) {
+    console.log("Teenager");
+} else {
+    console.log("Adult");
+}</pre>
+                            </div>
+                            <div class="live-demo">
+                                <button onclick="demonstrateIfStatements()">Try Demo</button>
+                                <div class="demo-result"></div>
+                            </div>
+                        </div>
+
+                        <div class="logic-card">
+                            <h4>🔄 Loops</h4>
+                            <div class="code-example">
+                                <pre class="code-block">// For loop - repeat a specific number of times
+for (let i = 1; i <= 5; i++) {
+    console.log("Count: " + i);
+}
+
+// While loop - repeat while condition is true
+let count = 1;
+while (count <= 3) {
+    console.log("Loop: " + count);
+    count++;
+}
+
+// Loop through an array
+let colors = ["red", "green", "blue"];
+for (let color of colors) {
+    console.log("Color: " + color);
+}</pre>
+                            </div>
+                            <div class="live-demo">
+                                <button onclick="demonstrateLoops()">Try Demo</button>
+                                <div class="demo-result"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hands-on-practice">
+                    <h3>🎯 Functions Practice</h3>
+                    <div class="practice-exercise">
+                        <h4>Create Your Own Functions!</h4>
+                        <p>Practice creating and using functions in the console:</p>
+                        
+                        <div class="function-challenges">
+                            <div class="challenge-item">
+                                <h5>Challenge 1: Create a greeting function</h5>
+                                <div class="code-example">
+                                    <pre class="code-block">// Try typing this in console:
+function greetMe(name) {
+    return "Nice to meet you, " + name + "!";
+}
+
+// Then call it:
+greetMe("Your Name");</pre>
+                                </div>
+                            </div>
+                            
+                            <div class="challenge-item">
+                                <h5>Challenge 2: Create a simple calculator</h5>
+                                <div class="code-example">
+                                    <pre class="code-block">// Try this calculator function:
+function multiply(x, y) {
+    return x * y;
+}
+
+// Test it:
+multiply(6, 7); // Should return 42</pre>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="practice-checklist">
+                            <h4>Functions Checklist:</h4>
+                            <label class="checklist-item">
+                                <input type="checkbox" id="check-greeting-function">
+                                <span class="checkmark"></span>
+                                Created and tested a greeting function
+                            </label>
+                            <label class="checklist-item">
+                                <input type="checkbox" id="check-math-function">
+                                <span class="checkmark"></span>
+                                Created and tested a math function
+                            </label>
+                            <label class="checklist-item">
+                                <input type="checkbox" id="check-if-statement">
+                                <span class="checkmark"></span>
+                                Tried an if statement with different values
+                            </label>
+                            <label class="checklist-item">
+                                <input type="checkbox" id="check-loop-practice">
+                                <span class="checkmark"></span>
+                                Created a simple loop
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- DOM Manipulation Section -->
+            <section id="dom" class="lesson-section">
+                <div class="section-header">
+                    <h2>DOM Manipulation: Changing Web Pages</h2>
+                    <p class="section-subtitle">Learn how to dynamically modify HTML content and CSS styles</p>
+                </div>
+
+                <div class="dom-basics">
+                    <h3>What is the DOM?</h3>
+                    <p>The DOM (Document Object Model) is like a tree representation of your HTML page that JavaScript can interact with. It allows you to find, change, add, or remove any element on the page.</p>
+                    
+                    <div class="dom-tree">
+                        <h4>DOM Tree Structure</h4>
+                        <div class="tree-visualization">
+                            <div class="tree-node">
+                                <span class="node-label">document</span>
+                                <div class="tree-children">
+                                    <div class="tree-node">
+                                        <span class="node-label">html</span>
+                                        <div class="tree-children">
+                                            <div class="tree-node">
+                                                <span class="node-label">head</span>
+                                                <div class="tree-children">
+                                                    <div class="tree-leaf">title</div>
+                                                </div>
+                                            </div>
+                                            <div class="tree-node">
+                                                <span class="node-label">body</span>
+                                                <div class="tree-children">
+                                                    <div class="tree-leaf">h1</div>
+                                                    <div class="tree-leaf">p</div>
+                                                    <div class="tree-leaf">div</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dom-methods">
+                    <h3>Essential DOM Methods</h3>
+                    <div class="methods-grid">
+                        <div class="method-card">
+                            <h4>🔍 Finding Elements</h4>
+                            <div class="code-example">
+                                <pre class="code-block">// Find by ID
+let element = document.getElementById("myId");
+
+// Find by class
+let elements = document.getElementsByClassName("myClass");
+
+// Find by CSS selector (modern way)
+let element = document.querySelector("#myId");
+let elements = document.querySelectorAll(".myClass");</pre>
+                            </div>
+                            <div class="method-explanation">
+                                <p>These methods help you locate specific HTML elements so you can modify them.</p>
+                            </div>
+                        </div>
+
+                        <div class="method-card">
+                            <h4>✏️ Changing Content</h4>
+                            <div class="code-example">
+                                <pre class="code-block">// Change text content
+element.textContent = "New text";
+
+// Change HTML content
+element.innerHTML = "&lt;strong&gt;Bold text&lt;/strong&gt;";
+
+// Change attributes
+element.src = "new-image.jpg";
+element.className = "new-class";</pre>
+                            </div>
+                            <div class="method-explanation">
+                                <p>Modify the content and attributes of elements dynamically.</p>
+                            </div>
+                        </div>
+
+                        <div class="method-card">
+                            <h4>🎨 Changing Styles</h4>
+                            <div class="code-example">
+                                <pre class="code-block">// Change individual styles
+element.style.color = "red";
+element.style.fontSize = "20px";
+element.style.backgroundColor = "yellow";
+
+// Add/remove CSS classes
+element.classList.add("highlight");
+element.classList.remove("hidden");
+element.classList.toggle("active");</pre>
+                            </div>
+                            <div class="method-explanation">
+                                <p>Dynamically change the appearance of elements.</p>
+                            </div>
+                        </div>
+
+                        <div class="method-card">
+                            <h4>➕ Adding Elements</h4>
+                            <div class="code-example">
+                                <pre class="code-block">// Create new element
+let newDiv = document.createElement("div");
+newDiv.textContent = "I'm new!";
+
+// Add to page
+document.body.appendChild(newDiv);
+
+// Remove element
+element.remove();</pre>
+                            </div>
+                            <div class="method-explanation">
+                                <p>Create new elements or remove existing ones.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dom-playground">
+                    <h3>Interactive DOM Playground</h3>
+                    <div class="playground-container">
+                        <div class="playground-demo">
+                            <h4>Try DOM Manipulation Live!</h4>
+                            <div class="demo-area">
+                                <div id="playground-target" class="playground-target">
+                                    <h3 id="demo-title">Change Me!</h3>
+                                    <p id="demo-text">This text can be modified</p>
+                                    <div id="demo-box" class="demo-box">Styled Box</div>
+                                </div>
+                                
+                                <div class="playground-controls">
+                                    <button onclick="changeTitle()">Change Title</button>
+                                    <button onclick="changeText()">Change Text</button>
+                                    <button onclick="changeColor()">Change Color</button>
+                                    <button onclick="addElement()">Add Element</button>
+                                    <button onclick="resetPlayground()">Reset</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="playground-code">
+                            <h4>The Code Behind the Magic</h4>
+                            <div class="code-example">
+                                <pre class="code-block" id="playground-code">// Change title
+function changeTitle() {
+    let title = document.getElementById("demo-title");
+    title.textContent = "Title Changed!";
+}
+
+// Change text color
+function changeColor() {
+    let box = document.getElementById("demo-box");
+    box.style.backgroundColor = "lightblue";
+}</pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hands-on-practice">
+                    <h3>🎯 DOM Practice</h3>
+                    <div class="practice-exercise">
+                        <h4>Practice DOM Manipulation!</h4>
+                        <p>Try these commands in your browser console while looking at this page:</p>
+                        
+                        <div class="dom-challenges">
+                            <div class="challenge-item">
+                                <h5>Challenge 1: Find and change an element</h5>
+                                <div class="code-example">
+                                    <pre class="code-block">// Try this in console:
+let heading = document.querySelector("h1");
+heading.style.color = "purple";</pre>
+                                </div>
+                            </div>
+                            
+                            <div class="challenge-item">
+                                <h5>Challenge 2: Add content to the page</h5>
+                                <div class="code-example">
+                                    <pre class="code-block">// Create and add a new paragraph:
+let newP = document.createElement("p");
+newP.textContent = "I added this with JavaScript!";
+newP.style.color = "green";
+document.body.appendChild(newP);</pre>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="practice-checklist">
+                            <h4>DOM Practice Checklist:</h4>
+                            <label class="checklist-item">
+                                <input type="checkbox" id="check-found-element">
+                                <span class="checkmark"></span>
+                                Used querySelector to find an element
+                            </label>
+                            <label class="checklist-item">
+                                <input type="checkbox" id="check-changed-style">
+                                <span class="checkmark"></span>
+                                Changed an element's style with JavaScript
+                            </label>
+                            <label class="checklist-item">
+                                <input type="checkbox" id="check-changed-content">
+                                <span class="checkmark"></span>
+                                Changed an element's text content
+                            </label>
+                            <label class="checklist-item">
+                                <input type="checkbox" id="check-created-element">
+                                <span class="checkmark"></span>
+                                Created and added a new element to the page
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Events & Interactivity Section -->
+            <section id="events" class="lesson-section">
+                <div class="section-header">
+                    <h2>Events & Interactivity: Responding to Users</h2>
+                    <p class="section-subtitle">Make your web pages respond to clicks, keyboard input, and other user actions</p>
+                </div>
+
+                <div class="events-basics">
+                    <h3>What are Events?</h3>
+                    <p>Events are things that happen in the browser - like clicking a button, typing in a text field, or moving the mouse. JavaScript can "listen" for these events and run code when they happen.</p>
+                    
+                    <div class="event-types">
+                        <h4>Common Event Types</h4>
+                        <div class="event-types-grid">
+                            <div class="event-type">
+                                <div class="event-icon">👆</div>
+                                <h5>Click Events</h5>
+                                <p>When user clicks on something</p>
+                            </div>
+                            <div class="event-type">
+                                <div class="event-icon">⌨️</div>
+                                <h5>Keyboard Events</h5>
+                                <p>When user types or presses keys</p>
+                            </div>
+                            <div class="event-type">
+                                <div class="event-icon">🖱️</div>
+                                <h5>Mouse Events</h5>
+                                <p>Mouse movement, hover, etc.</p>
+                            </div>
+                            <div class="event-type">
+                                <div class="event-icon">📝</div>
+                                <h5>Form Events</h5>
+                                <p>Form submission, input changes</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="event-handling">
+                    <h3>Adding Event Listeners</h3>
+                    <div class="event-methods">
+                        <div class="method-card">
+                            <h4>🎯 addEventListener Method</h4>
+                            <div class="code-example">
+                                <div class="code-header">
+                                    <span class="code-title">Modern Event Handling</span>
+                                    <button class="copy-btn" onclick="copyCode('event-listener')">Copy</button>
+                                </div>
+                                <pre class="code-block" id="event-listener">// Find the element
+let button = document.getElementById("myButton");
+
+// Add click event listener
+button.addEventListener("click", function() {
+    alert("Button was clicked!");
+});
+
+// You can also use arrow functions
+button.addEventListener("click", () => {
+    console.log("Modern syntax!");
+});
+
+// Multiple events on same element
+button.addEventListener("mouseenter", () => {
+    button.style.backgroundColor = "lightblue";
+});
+
+button.addEventListener("mouseleave", () => {
+    button.style.backgroundColor = "";
+});</pre>
+                            </div>
+                        </div>
+
+                        <div class="method-card">
+                            <h4>📊 Event Object</h4>
+                            <div class="code-example">
+                                <pre class="code-block">// Event object contains useful information
+button.addEventListener("click", function(event) {
+    console.log("Click position:", event.clientX, event.clientY);
+    console.log("Element clicked:", event.target);
+    
+    // Prevent default behavior
+    event.preventDefault();
+});
+
+// Keyboard events
+input.addEventListener("keydown", function(event) {
+    console.log("Key pressed:", event.key);
+    
+    if (event.key === "Enter") {
+        console.log("Enter key pressed!");
+    }
+});</pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="interactive-examples">
+                    <h3>Interactive Examples</h3>
+                    <div class="examples-grid">
+                        <div class="example-card">
+                            <h4>🖱️ Click Counter</h4>
+                            <div class="interactive-demo">
+                                <button id="counter-btn" class="demo-button">Click me!</button>
+                                <div class="counter-display">Clicks: <span id="click-counter">0</span></div>
+                            </div>
+                            <div class="code-example">
+                                <pre class="code-block">let count = 0;
+let button = document.getElementById("counter-btn");
+let display = document.getElementById("click-counter");
+
+button.addEventListener("click", function() {
+    count++;
+    display.textContent = count;
+});</pre>
+                            </div>
+                        </div>
+
+                        <div class="example-card">
+                            <h4>🎨 Color Changer</h4>
+                            <div class="interactive-demo">
+                                <div id="color-box" class="color-box">Hover over me!</div>
+                                <button id="change-color-btn" class="demo-button">Change Color</button>
+                            </div>
+                            <div class="code-example">
+                                <pre class="code-block">let colorBox = document.getElementById("color-box");
+let colors = ["red", "blue", "green", "orange", "purple"];
+let currentColor = 0;
+
+document.getElementById("change-color-btn")
+    .addEventListener("click", function() {
+        colorBox.style.backgroundColor = colors[currentColor];
+        currentColor = (currentColor + 1) % colors.length;
+    });</pre>
+                            </div>
+                        </div>
+
+                        <div class="example-card">
+                            <h4>⌨️ Keyboard Input</h4>
+                            <div class="interactive-demo">
+                                <input type="text" id="text-input" placeholder="Type something..." class="demo-input">
+                                <div id="output-display" class="output-display">Your text will appear here...</div>
+                            </div>
+                            <div class="code-example">
+                                <pre class="code-block">let input = document.getElementById("text-input");
+let output = document.getElementById("output-display");
+
+input.addEventListener("input", function() {
+    output.textContent = "You typed: " + input.value;
+});
+
+input.addEventListener("keydown", function(event) {
+    if (event.key === "Enter") {
+        output.style.color = "green";
+    }
+});</pre>
+                            </div>
+                        </div>
+
+                        <div class="example-card">
+                            <h4>📋 Dynamic List</h4>
+                            <div class="interactive-demo">
+                                <input type="text" id="list-input" placeholder="Add item..." class="demo-input">
+                                <button id="add-item-btn" class="demo-button">Add Item</button>
+                                <ul id="dynamic-list" class="dynamic-list"></ul>
+                            </div>
+                            <div class="code-example">
+                                <pre class="code-block">let input = document.getElementById("list-input");
+let button = document.getElementById("add-item-btn");
+let list = document.getElementById("dynamic-list");
+
+button.addEventListener("click", function() {
+    if (input.value.trim() !== "") {
+        let listItem = document.createElement("li");
+        listItem.textContent = input.value;
+        list.appendChild(listItem);
+        input.value = "";
+    }
+});</pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hands-on-practice">
+                    <h3>🎯 Events Practice</h3>
+                    <div class="practice-exercise">
+                        <h4>Create Your Own Interactive Elements!</h4>
+                        <p>Try creating these interactive features in your console or add them to your profile page:</p>
+                        
+                        <div class="event-challenges">
+                            <div class="challenge-item">
+                                <h5>Challenge 1: Alert Button</h5>
+                                <div class="code-example">
+                                    <pre class="code-block">// Add this to your HTML: &lt;button id="alertBtn"&gt;Click Me&lt;/button&gt;
+// Then try this JavaScript:
+let alertBtn = document.getElementById("alertBtn");
+alertBtn.addEventListener("click", function() {
+    alert("Hello from JavaScript!");
+});</pre>
+                                </div>
+                            </div>
+                            
+                            <div class="challenge-item">
+                                <h5>Challenge 2: Hide/Show Element</h5>
+                                <div class="code-example">
+                                    <pre class="code-block">// Create a toggle function
+function toggleElement() {
+    let element = document.getElementById("someElement");
+    if (element.style.display === "none") {
+        element.style.display = "block";
+    } else {
+        element.style.display = "none";
+    }
+}</pre>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="practice-checklist">
+                            <h4>Events Practice Checklist:</h4>
+                            <label class="checklist-item">
+                                <input type="checkbox" id="check-click-event">
+                                <span class="checkmark"></span>
+                                Created a button with a click event
+                            </label>
+                            <label class="checklist-item">
+                                <input type="checkbox" id="check-keyboard-event">
+                                <span class="checkmark"></span>
+                                Tried a keyboard event with an input field
+                            </label>
+                            <label class="checklist-item">
+                                <input type="checkbox" id="check-mouse-event">
+                                <span class="checkmark"></span>
+                                Added a mouse hover effect
+                            </label>
+                            <label class="checklist-item">
+                                <input type="checkbox" id="check-dynamic-content">
+                                <span class="checkmark"></span>
+                                Created dynamic content with events
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Mini Project Section -->
+            <section id="mini-project" class="lesson-section">
+                <div class="section-header">
+                    <h2>Mini Project: Interactive Profile Page</h2>
+                    <p class="section-subtitle">Add JavaScript interactivity to your HTML and CSS profile</p>
+                </div>
+
+                <div class="project-overview">
+                    <h3>Transform Your Profile with JavaScript</h3>
+                    <p>You'll take your styled profile page from Lesson 2 and add interactive features that respond to user actions!</p>
+                    
+                    <div class="project-features">
+                        <h4>Interactive Features You'll Add:</h4>
+                        <ul class="feature-list">
+                            <li>Dynamic greeting that changes based on time of day</li>
+                            <li>Interactive skill progress bars</li>
+                            <li>Theme switcher (light/dark mode)</li>
+                            <li>Contact form with validation</li>
+                            <li>Smooth scrolling navigation</li>
+                            <li>Fun hover effects and animations</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="project-steps">
+                    <h3>Step-by-Step JavaScript Integration</h3>
+                    
+                    <div class="step-card">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h4>Create JavaScript File</h4>
+                            <p>Create a new file called <code>profile-script.js</code> in the same folder as your profile.html</p>
+                            <div class="step-tip">
+                                <strong>Organization Tip:</strong> External JavaScript files keep your HTML clean and make your code reusable.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="step-card">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h4>Link JavaScript to HTML</h4>
+                            <p>Add this script tag before the closing &lt;/body&gt; tag in your profile.html:</p>
+                            <div class="code-example">
+                                <pre class="code-block">&lt;script src="profile-script.js"&gt;&lt;/script&gt;</pre>
+                            </div>
+                            <div class="step-tip">
+                                <strong>Why at the bottom?</strong> JavaScript runs after HTML loads, ensuring all elements are available.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="step-card">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h4>Add Dynamic Greeting</h4>
+                            <p>Make your profile greet users differently based on the time of day:</p>
+                            <div class="code-example">
+                                <div class="code-header">
+                                    <span class="code-title">Dynamic Greeting (profile-script.js)</span>
+                                    <button class="copy-btn" onclick="copyCode('dynamic-greeting')">Copy</button>
+                                </div>
+                                <pre class="code-block" id="dynamic-greeting">// Dynamic greeting based on time
+function updateGreeting() {
+    const now = new Date();
+    const hour = now.getHours();
+    let greeting;
+    let emoji;
+    
+    if (hour < 12) {
+        greeting = "Good morning";
+        emoji = "🌅";
+    } else if (hour < 17) {
+        greeting = "Good afternoon";
+        emoji = "☀️";
+    } else {
+        greeting = "Good evening";
+        emoji = "🌆";
+    }
+    
+    // Update the greeting in your HTML
+    const greetingElement = document.getElementById("greeting");
+    if (greetingElement) {
+        greetingElement.innerHTML = `${greeting}! ${emoji}`;
+    }
+}
+
+// Run when page loads
+document.addEventListener('DOMContentLoaded', updateGreeting);</pre>
+                            </div>
+                            <p>Add this to your HTML header: <code>&lt;span id="greeting"&gt;Hello!&lt;/span&gt;</code></p>
+                        </div>
+                    </div>
+
+                    <div class="step-card">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <h4>Interactive Skill Bars</h4>
+                            <p>Create animated progress bars for your skills:</p>
+                            <div class="code-example">
+                                <div class="code-header">
+                                    <span class="code-title">Animated Skill Bars</span>
+                                    <button class="copy-btn" onclick="copyCode('skill-bars')">Copy</button>
+                                </div>
+                                <pre class="code-block" id="skill-bars">// Animate skill progress bars
+function animateSkillBars() {
+    const skillBars = document.querySelectorAll('.skill-progress');
+    
+    skillBars.forEach(bar => {
+        const targetWidth = bar.getAttribute('data-skill');
+        bar.style.width = '0%';
+        
+        // Animate to target width
+        setTimeout(() => {
+            bar.style.transition = 'width 2s ease-in-out';
+            bar.style.width = targetWidth + '%';
+        }, 500);
+    });
+}
+
+// Trigger animation when skills section comes into view
+const skillsSection = document.getElementById('skills');
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            animateSkillBars();
+            observer.unobserve(entry.target);
+        }
+    });
+});
+
+if (skillsSection) {
+    observer.observe(skillsSection);
+}</pre>
+                            </div>
+                            <p>Add this HTML structure for skills:</p>
+                            <div class="code-example">
+                                <pre class="code-block">&lt;div class="skill-item"&gt;
+    &lt;span&gt;HTML&lt;/span&gt;
+    &lt;div class="skill-bar"&gt;
+        &lt;div class="skill-progress" data-skill="90"&gt;&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</pre>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="step-card">
+                        <div class="step-number">5</div>
+                        <div class="step-content">
+                            <h4>Theme Switcher</h4>
+                            <p>Add a dark/light theme toggle:</p>
+                            <div class="code-example">
+                                <div class="code-header">
+                                    <span class="code-title">Theme Switcher</span>
+                                    <button class="copy-btn" onclick="copyCode('theme-switcher')">Copy</button>
+                                </div>
+                                <pre class="code-block" id="theme-switcher">// Theme switcher functionality
+function initThemeSwitcher() {
+    const themeBtn = document.getElementById('theme-toggle');
+    const body = document.body;
+    
+    // Check for saved theme
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+        body.classList.add(savedTheme);
+        updateThemeButton(savedTheme);
+    }
+    
+    themeBtn.addEventListener('click', () => {
+        if (body.classList.contains('dark-theme')) {
+            body.classList.remove('dark-theme');
+            localStorage.setItem('theme', 'light-theme');
+            updateThemeButton('light-theme');
+        } else {
+            body.classList.add('dark-theme');
+            localStorage.setItem('theme', 'dark-theme');
+            updateThemeButton('dark-theme');
+        }
+    });
+}
+
+function updateThemeButton(theme) {
+    const themeBtn = document.getElementById('theme-toggle');
+    themeBtn.textContent = theme === 'dark-theme' ? '☀️ Light' : '🌙 Dark';
+}
+
+// Initialize when page loads
+document.addEventListener('DOMContentLoaded', initThemeSwitcher);</pre>
+                            </div>
+                            <p>Add this button to your HTML: <code>&lt;button id="theme-toggle"&gt;🌙 Dark&lt;/button&gt;</code></p>
+                        </div>
+                    </div>
+
+                    <div class="step-card">
+                        <div class="step-number">6</div>
+                        <div class="step-content">
+                            <h4>Contact Form Validation</h4>
+                            <p>Add form validation and feedback:</p>
+                            <div class="code-example">
+                                <div class="code-header">
+                                    <span class="code-title">Form Validation</span>
+                                    <button class="copy-btn" onclick="copyCode('form-validation')">Copy</button>
+                                </div>
+                                <pre class="code-block" id="form-validation">// Contact form validation
+function initContactForm() {
+    const form = document.getElementById('contact-form');
+    
+    if (form) {
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const message = document.getElementById('message').value.trim();
+            
+            // Simple validation
+            if (name === '' || email === '' || message === '') {
+                showMessage('Please fill in all fields!', 'error');
+                return;
+            }
+            
+            if (!isValidEmail(email)) {
+                showMessage('Please enter a valid email!', 'error');
+                return;
+            }
+            
+            // Success
+            showMessage('Thank you! Message sent successfully!', 'success');
+            form.reset();
+        });
+    }
+}
+
+function isValidEmail(email) {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+}
+
+function showMessage(text, type) {
+    const messageDiv = document.getElementById('form-message');
+    messageDiv.textContent = text;
+    messageDiv.className = `form-message ${type}`;
+    messageDiv.style.display = 'block';
+    
+    setTimeout(() => {
+        messageDiv.style.display = 'none';
+    }, 5000);
+}
+
+document.addEventListener('DOMContentLoaded', initContactForm);</pre>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="step-card">
+                        <div class="step-number">7</div>
+                        <div class="step-content">
+                            <h4>Smooth Navigation</h4>
+                            <p>Add smooth scrolling to navigation links:</p>
+                            <div class="code-example">
+                                <div class="code-header">
+                                    <span class="code-title">Smooth Scrolling</span>
+                                    <button class="copy-btn" onclick="copyCode('smooth-scroll')">Copy</button>
+                                </div>
+                                <pre class="code-block" id="smooth-scroll">// Smooth scrolling navigation
+function initSmoothScrolling() {
+    const navLinks = document.querySelectorAll('nav a[href^="#"]');
+    
+    navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            const targetId = this.getAttribute('href').substring(1);
+            const targetSection = document.getElementById(targetId);
+            
+            if (targetSection) {
+                targetSection.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+                
+                // Update active navigation
+                updateActiveNav(this);
+            }
+        });
+    });
+}
+
+function updateActiveNav(activeLink) {
+    const navLinks = document.querySelectorAll('nav a');
+    navLinks.forEach(link => link.classList.remove('active'));
+    activeLink.classList.add('active');
+}
+
+document.addEventListener('DOMContentLoaded', initSmoothScrolling);</pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-validation">
+                    <h3>Validate Your Interactive Profile</h3>
+                    <p>Test each interactive feature as you implement it:</p>
+                    <div class="validation-checklist">
+                        <label class="checklist-item">
+                            <input type="checkbox" id="check-js-linked">
+                            <span class="checkmark"></span>
+                            Created JavaScript file and linked it to HTML
+                        </label>
+                        <label class="checklist-item">
+                            <input type="checkbox" id="check-greeting-works">
+                            <span class="checkmark"></span>
+                            Dynamic greeting changes based on time of day
+                        </label>
+                        <label class="checklist-item">
+                            <input type="checkbox" id="check-skill-bars-animate">
+                            <span class="checkmark"></span>
+                            Skill bars animate when scrolled into view
+                        </label>
+                        <label class="checklist-item">
+                            <input type="checkbox" id="check-theme-toggle">
+                            <span class="checkmark"></span>
+                            Theme switcher changes between light and dark modes
+                        </label>
+                        <label class="checklist-item">
+                            <input type="checkbox" id="check-form-validation">
+                            <span class="checkmark"></span>
+                            Contact form validates input and shows feedback
+                        </label>
+                        <label class="checklist-item">
+                            <input type="checkbox" id="check-smooth-scroll">
+                            <span class="checkmark"></span>
+                            Navigation links scroll smoothly to sections
+                        </label>
+                        <label class="checklist-item">
+                            <input type="checkbox" id="check-interactive-effects">
+                            <span class="checkmark"></span>
+                            Added hover effects and interactive elements
+                        </label>
+                        <label class="checklist-item">
+                            <input type="checkbox" id="check-no-errors">
+                            <span class="checkmark"></span>
+                            No JavaScript errors in browser console
+                        </label>
+                    </div>
+                    <button class="btn btn-success" onclick="validateProject()" id="project-complete-btn" disabled>
+                        Interactivity Complete! ⚡
+                    </button>
+                </div>
+            </section>
+
+            <!-- Completion Section -->
+            <section id="completion" class="lesson-section">
+                <div class="section-header">
+                    <h2>Lesson Complete!</h2>
+                    <p class="section-subtitle">You've mastered JavaScript basics and created an interactive web experience</p>
+                </div>
+
+                <div class="completion-content">
+                    <div class="achievement-card">
+                        <div class="achievement-icon">⚡</div>
+                        <h3>JavaScript Skills Unlocked!</h3>
+                        <ul class="achievement-list">
+                            <li>✅ Variables and data types (strings, numbers, booleans, arrays)</li>
+                            <li>✅ Functions and conditional logic (if statements, loops)</li>
+                            <li>✅ DOM manipulation (finding, changing, creating elements)</li>
+                            <li>✅ Event handling (clicks, keyboard, mouse interactions)</li>
+                            <li>✅ Form validation and user feedback</li>
+                            <li>✅ Interactive animations and effects</li>
+                            <li>✅ Local storage and theme persistence</li>
+                            <li>✅ Modern JavaScript best practices</li>
+                        </ul>
+                    </div>
+
+                    <div class="next-steps">
+                        <h3>Congratulations! You've Completed the Web Foundations!</h3>
+                        <p>
+                            You now have a solid foundation in the three core technologies of web development: 
+                            HTML for structure, CSS for styling, and JavaScript for interactivity. In Part 2, 
+                            we'll dive into Vue.js, which will supercharge your JavaScript skills and help you 
+                            build modern, reactive web applications!
+                        </p>
+                        
+                        <div class="lesson-preview">
+                            <div class="preview-header">
+                                <span class="preview-label">Part 2 Preview:</span>
+                                <span class="preview-title">Vue.js Fundamentals</span>
+                            </div>
+                            <div class="preview-topics">
+                                <span class="topic-tag">Vue Basics</span>
+                                <span class="topic-tag">Reactive Data</span>
+                                <span class="topic-tag">Components</span>
+                                <span class="topic-tag">Modern Development</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="completion-actions">
+                        <button class="btn btn-primary" onclick="window.markLessonComplete(100)" id="complete-lesson-btn" disabled>
+                            Complete Part 1 & Continue to Vue.js
+                        </button>
+                        <button class="btn btn-secondary" onclick="reviewLesson()">
+                            Review This Lesson
+                        </button>
+                    </div>
+                </div>
+
+                <div class="feedback-section">
+                    <h4>How was this JavaScript lesson?</h4>
+                    <div class="feedback-options">
+                        <button class="feedback-btn" data-rating="easy" onclick="submitFeedback('easy')">😊 Too Easy</button>
+                        <button class="feedback-btn" data-rating="perfect" onclick="submitFeedback('perfect')">🎯 Just Right</button>
+                        <button class="feedback-btn" data-rating="challenging" onclick="submitFeedback('challenging')">🤔 Challenging</button>
+                        <button class="feedback-btn" data-rating="difficult" onclick="submitFeedback('difficult')">😅 Too Hard</button>
+                    </div>
+                    <div class="feedback-message" id="feedback-message" style="display: none;">
+                        <p>Thank you for your feedback! This helps us improve the learning experience.</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../global-part_1.js"></script>
+    <script src="lesson_3.js"></script>
+</body>
+</html>
