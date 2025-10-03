@@ -117,178 +117,132 @@ function updateCurrentTime() {
 function demonstrateStrings() {
     const demo = document.querySelector('#string-demo .demo-result');
     if (demo) {
-        const examples = [
-            'let name = "JavaScript";',
-            'let greeting = `Hello, ${name}!`;',
-            'greeting.toUpperCase(); // "HELLO, JAVASCRIPT!"',
-            'name.length; // 10'
-        ];
-        
-        let current = 0;
-        const interval = setInterval(() => {
-            demo.textContent = examples[current];
-            current++;
-            if (current >= examples.length) {
-                clearInterval(interval);
-                setTimeout(() => {
-                    demo.textContent = 'Try typing these in your console!';
-                }, 2000);
-            }
-        }, 1500);
+        demo.innerHTML = `
+            <div style="text-align: left; line-height: 1.8;">
+                <p><strong>let name = "JavaScript";</strong></p>
+                <p>✓ name.toUpperCase() = "JAVASCRIPT"</p>
+                <p>✓ name.length = 10</p>
+                <p>✓ "Hello, " + name = "Hello, JavaScript"</p>
+            </div>
+        `;
+        demo.style.background = '#e8f5e9';
+        demo.style.border = '2px solid #4caf50';
     }
 }
 
 function demonstrateNumbers() {
     const demo = document.querySelector('#number-demo .demo-result');
     if (demo) {
-        const examples = [
-            'let x = 10; let y = 3;',
-            'x + y = 13',
-            'x * y = 30',
-            'x / y = 3.33',
-            'x % y = 1 (remainder)'
-        ];
-        
-        let current = 0;
-        const interval = setInterval(() => {
-            demo.textContent = examples[current];
-            current++;
-            if (current >= examples.length) {
-                clearInterval(interval);
-                setTimeout(() => {
-                    demo.textContent = 'Numbers are powerful in JavaScript!';
-                }, 2000);
-            }
-        }, 1200);
+        demo.innerHTML = `
+            <div style="text-align: left; line-height: 1.8;">
+                <p><strong>let x = 10; let y = 3;</strong></p>
+                <p>✓ x + y = 13</p>
+                <p>✓ x * y = 30</p>
+                <p>✓ x / y = 3.33</p>
+                <p>✓ x % y = 1 (remainder)</p>
+            </div>
+        `;
+        demo.style.background = '#e3f2fd';
+        demo.style.border = '2px solid #2196f3';
     }
 }
 
 function demonstrateBooleans() {
     const demo = document.querySelector('#boolean-demo .demo-result');
     if (demo) {
-        const examples = [
-            'true && false = false',
-            'true || false = true',
-            '5 > 3 = true',
-            '10 === "10" = false',
-            '!true = false'
-        ];
-        
-        let current = 0;
-        const interval = setInterval(() => {
-            demo.textContent = examples[current];
-            current++;
-            if (current >= examples.length) {
-                clearInterval(interval);
-                setTimeout(() => {
-                    demo.textContent = 'Booleans help make decisions!';
-                }, 2000);
-            }
-        }, 1300);
+        demo.innerHTML = `
+            <div style="text-align: left; line-height: 1.8;">
+                <p><strong>Boolean operations:</strong></p>
+                <p>✓ true && false = false</p>
+                <p>✓ true || false = true</p>
+                <p>✓ 5 > 3 = true</p>
+                <p>✓ !true = false</p>
+            </div>
+        `;
+        demo.style.background = '#fff3e0';
+        demo.style.border = '2px solid #ff9800';
     }
 }
 
 function demonstrateArrays() {
     const demo = document.querySelector('#array-demo .demo-result');
     if (demo) {
-        const examples = [
-            'let fruits = ["apple", "banana", "orange"];',
-            'fruits[0] = "apple"',
-            'fruits.length = 3',
-            'fruits.push("grape"); // adds to end',
-            'fruits = ["apple", "banana", "orange", "grape"]'
-        ];
-        
-        let current = 0;
-        const interval = setInterval(() => {
-            demo.textContent = examples[current];
-            current++;
-            if (current >= examples.length) {
-                clearInterval(interval);
-                setTimeout(() => {
-                    demo.textContent = 'Arrays store lists of data!';
-                }, 2000);
-            }
-        }, 1400);
+        demo.innerHTML = `
+            <div style="text-align: left; line-height: 1.8;">
+                <p><strong>let fruits = ["apple", "banana"];</strong></p>
+                <p>✓ fruits[0] = "apple"</p>
+                <p>✓ fruits.length = 2</p>
+                <p>✓ fruits.push("orange") → ["apple", "banana", "orange"]</p>
+            </div>
+        `;
+        demo.style.background = '#f3e5f5';
+        demo.style.border = '2px solid #9c27b0';
     }
 }
 
 function demonstrateSimpleFunctions() {
-    const demo = document.querySelector('#functions .function-card .demo-result');
+    const demo = document.getElementById('simple-functions-result');
     if (demo) {
-        const result1 = 'sayHello() returns: "Hello World!"';
-        const result2 = 'addNumbers(5, 3) returns: 8';
-        
-        demo.textContent = result1;
-        setTimeout(() => {
-            demo.textContent = result2;
-        }, 2000);
-        setTimeout(() => {
-            demo.textContent = 'Functions make code reusable!';
-        }, 4000);
+        demo.innerHTML = `
+            <div style="text-align: left; line-height: 1.8;">
+                <p><strong>✓ Functions executed!</strong></p>
+                <p>sayHello() returned: <span style="color: #4caf50;">"Hello World!"</span></p>
+                <p>addNumbers(5, 3) returned: <span style="color: #4caf50;">8</span></p>
+                <p style="margin-top: 10px; font-style: italic; color: #666;">Functions make code reusable! 🎉</p>
+            </div>
+        `;
+        demo.style.background = '#e8f5e9';
+        demo.style.border = '2px solid #4caf50';
     }
 }
 
 function demonstrateMathFunctions() {
-    const demo = document.querySelectorAll('#functions .function-card .demo-result')[1];
+    const demo = document.getElementById('math-functions-result');
     if (demo) {
-        const result1 = 'calculateArea(10, 5) returns: 50';
-        const result2 = 'applyDiscount(100, 20) returns: 80';
-        
-        demo.textContent = result1;
-        setTimeout(() => {
-            demo.textContent = result2;
-        }, 2000);
-        setTimeout(() => {
-            demo.textContent = 'Math functions solve real problems!';
-        }, 4000);
+        demo.innerHTML = `
+            <div style="text-align: left; line-height: 1.8;">
+                <p><strong>✓ Math calculations complete!</strong></p>
+                <p>calculateArea(10, 5) = <span style="color: #2196f3;">50 square units</span></p>
+                <p>applyDiscount(100, 20) = <span style="color: #2196f3;">$80</span> (20% off)</p>
+                <p style="margin-top: 10px; font-style: italic; color: #666;">Math functions solve real problems! 🧮</p>
+            </div>
+        `;
+        demo.style.background = '#e3f2fd';
+        demo.style.border = '2px solid #2196f3';
     }
 }
 
 function demonstrateIfStatements() {
-    const demo = document.querySelector('.logic-card .demo-result');
+    const demo = document.getElementById('if-statements-result');
     if (demo) {
-        const examples = [
-            'age = 16: "You\'re a minor"',
-            'age = 20: "You\'re an adult"',
-            'age = 12: "Child"',
-            'age = 15: "Teenager"'
-        ];
-        
-        let current = 0;
-        const interval = setInterval(() => {
-            demo.textContent = examples[current];
-            current++;
-            if (current >= examples.length) {
-                clearInterval(interval);
-                setTimeout(() => {
-                    demo.textContent = 'If statements make decisions!';
-                }, 2000);
-            }
-        }, 1500);
+        demo.innerHTML = `
+            <div style="text-align: left; line-height: 1.8;">
+                <p><strong>✓ Testing different ages:</strong></p>
+                <p>age = 16: <span style="color: #ff9800;">"You're a minor"</span> and <span style="color: #ff9800;">"Teenager"</span></p>
+                <p>age = 20: <span style="color: #4caf50;">"You're an adult"</span> and <span style="color: #4caf50;">"Adult"</span></p>
+                <p>age = 12: <span style="color: #ff9800;">"You're a minor"</span> and <span style="color: #2196f3;">"Child"</span></p>
+                <p style="margin-top: 10px; font-style: italic; color: #666;">If statements make decisions! 🤔</p>
+            </div>
+        `;
+        demo.style.background = '#fff3e0';
+        demo.style.border = '2px solid #ff9800';
     }
 }
 
 function demonstrateLoops() {
-    const demo = document.querySelectorAll('.logic-card .demo-result')[1];
+    const demo = document.getElementById('loops-result');
     if (demo) {
-        const examples = [
-            'for loop: Count: 1',
-            'for loop: Count: 2',
-            'for loop: Count: 3',
-            'for loop: Count: 4',
-            'for loop: Count: 5',
-            'Loops repeat code automatically!'
-        ];
-        
-        let current = 0;
-        const interval = setInterval(() => {
-            demo.textContent = examples[current];
-            current++;
-            if (current >= examples.length) {
-                clearInterval(interval);
-            }
-        }, 800);
+        demo.innerHTML = `
+            <div style="text-align: left; line-height: 1.8;">
+                <p><strong>✓ Loops executed!</strong></p>
+                <p><strong>For loop:</strong> Count: 1, 2, 3, 4, 5</p>
+                <p><strong>While loop:</strong> Loop: 1, 2, 3</p>
+                <p><strong>Array loop:</strong> Color: red, green, blue</p>
+                <p style="margin-top: 10px; font-style: italic; color: #666;">Loops repeat code automatically! 🔄</p>
+            </div>
+        `;
+        demo.style.background = '#f3e5f5';
+        demo.style.border = '2px solid #9c27b0';
     }
 }
 
@@ -708,11 +662,11 @@ function reviewLesson() {
     showNotification('Reviewing from the beginning. Take your time!', 'info');
 }
 
-// Go to next lesson (Part 2)
+// Go to next lesson (Lesson 4)
 function goToNextLesson() {
-    showNotification('Congratulations! Moving to Vue.js fundamentals...', 'celebration');
+    showNotification('Great progress! Moving to JavaScript Interactivity...', 'celebration');
     setTimeout(() => {
-        window.location.href = '../../part_2/lesson_4/lesson_4.html';
+        window.location.href = '../lesson_4/lesson_4.html';
     }, 2000);
 }
 
