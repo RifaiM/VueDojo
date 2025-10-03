@@ -1725,8 +1725,6 @@
         width: 100%;
         max-width: 200px;
     }
-}] {
-    display: none;
 }
 
 .checkmark {
@@ -1752,6 +1750,10 @@
     color: white;
     font-weight: bold;
     font-size: 12px;
+}
+
+.checklist-item input[type="checkbox"] {
+    display: none;
 }
 
 /* Project Steps */
